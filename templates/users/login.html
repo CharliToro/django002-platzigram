@@ -1,14 +1,15 @@
 {% extends "users/base.html" %}
+{% load i18n%}
 
 {% block head_content %}
-<title>Platzigram sign in</title>
+<title>{% trans "Platzigram sign in" %}</title>
 {% endblock%}
 
 {% block container %}
 
     {% if form.errors %}
         <p class="alert alert-danger">
-            Your username and password didn't match. Please try again.
+            {% trans "Your username and password didn't match. Please try again." %}
         </p>
     {% endif%}
 
@@ -16,18 +17,18 @@
         {% csrf_token %}
 
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Username" name="username" />
+            <input class="form-control" type="text" placeholder={% trans "Username" %} name="username" />
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="password" placeholder="Password" name="password" />
+            <input class="form-control" type="password" placeholder={% trans "Password" %} name="password" />
         </div>
 
 
-        <button class="btn btn-primary btn-block mt-5" type="submit">Sign in!</button>
+        <button class="btn btn-primary btn-block mt-5" type="submit">{% trans "Sign in!" %}</button>
 
     </form>
 
-    <p class="mt-4">Don't have an account yet? <a href="{% url "users:signup" %}">Sign up here.</a></p>
+    <p class="mt-4">{% trans "Don't have an account yet?" %} <a href="{% url "users:signup" %}">{% trans "Sign up here." %}</a></p>
 
 {% endblock %}

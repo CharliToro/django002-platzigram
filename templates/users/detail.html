@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block head_content %}
 <title>@{{ user.username }} | Platzigram</title>
@@ -26,27 +27,27 @@
                             href="{% url "users:update" %}"
                             class="ml-5 btn btn-sm btn-outline-info"
                         >
-                            Edit profile
+                            {% trans "Edit profile" %}
                         </a>
                     {% else %}
                         <a
                             href=""
                             class="ml-5 btn btn-sm btn-primary"
                         >
-                            Follow
+                            {% trans "Follow"%}
                         </a>
                     {% endif %}
                 </h2>
 
                 <div class="row mt-2" style="font-size: 1.2em">
                     <div class="col-sm-4">
-                        <b>{{ user.profile.posts_count }}785</b> posts
+                        <b>{{ user.profile.posts_count }}785</b> {% trans "posts"%}
                     </div>
                     <div class="col-sm-4">
-                        <b>{{ user.profile.followers }}1,401</b> followers
+                        <b>{{ user.profile.followers }}1,401</b> {% trans "followers"%}
                     </div>
                     <div class="col-sm-4">
-                        <b>{{ user.profile.following }}491</b> following
+                        <b>{{ user.profile.following }}491</b> {% trans "following"%}
                     </div>
                 </div>
                 <div class="row mt-4">

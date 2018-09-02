@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head_content %}
-<title>@{{ request.user.username }} | Update profile</title>
+<title>@{{ request.user.username }} {% trans "| Update profile" %}</title>
 {% endblock %}
 
 {% block container %}
@@ -30,7 +30,7 @@
 
                 {% for error in form.picture.errors %}
                 <div class="alert alert-danger">
-                    <b>Picture: </b>{{ error }}
+                    <b>{% trans "Picture:" %} </b>{{ error }}
                 </div>
                 {% endfor %}
 
@@ -38,12 +38,12 @@
 
                 {# Website field #}
                 <div class="form-group">
-                    <label>Website</label>
+                    <label>{% trans "Website" %}</label>
                     <input
                         class="form-control {% if form.website.errors %}is-invalid{% endif %}"
                         type="text"
                         name="website"
-                        placeholder="Website"
+                        placeholder={% trans ""Website"" %}
                         value="{% if form.errors %}{{ form.website.value }}{% else %}{{ profile.website }}{% endif %}"
                     />
                     <div class="invalid-feedback">
@@ -55,7 +55,7 @@
 
                 {# Biography field #}
                 <div class="form-group">
-                    <label>Biography</label>
+                    <label>{% trans "Biography" %}</label>
                     <textarea
                         class="form-control {% if form.biography.errors %}is-invalid{% endif %}"
                         name="biography"
@@ -70,12 +70,12 @@
 
                 {# Phone number field #}
                 <div class="form-group">
-                    <label>Phone number</label>
+                    <label>{% trans "Phone number" %}</label>
                     <input
                         class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}"
                         type="text"
                         name="phone_number"
-                        placeholder="Phone number"
+                        placeholder={% trans "Phone number" %}
                         value="{% if form.errors %}{{ form.phone_number.value }}{% else %}{{ profile.phone_number }}{% endif %}"
                     />
                     <div class="invalid-feedback">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block mt-5">Update info</button>
+                <button type="submit" class="btn btn-primary btn-block mt-5">{% trans "Update info" %}</button>
             </form>
         </div>
     </div>
